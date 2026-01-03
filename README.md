@@ -98,8 +98,8 @@
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/amaan-ur-raheman/ai-site-builder.git
-cd ai-site-builder
+git clone https://github.com/Jagadeeshreddy14/Ai-Website-Builder.git
+cd Ai-Website-Builder
 ```
 
 2. **Install dependencies**
