@@ -2,6 +2,7 @@ import api from "@/config/axios";
 import { authClient } from "@/lib/auth-client";
 
 import { Loader2Icon } from "lucide-react";
+import { SiHuawei, SiWalmart } from "react-icons/si";
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -105,30 +106,33 @@ const Home = () => {
 
             <div className="flex flex-wrap items-center justify-center gap-16 md:gap-20 mx-auto mt-16">
                 <img
-                    className="max-w-28 md:max-w-32"
-                    src="https://saasly.prebuiltui.com/assets/companies-logo/framer.svg"
+                    className="h-8 w-auto grayscale brightness-[100] invert contrast-200"
+                    src="/assets/logos/framer.svg"
                     alt="Framer logo"
                 />
+                
+                <div className="flex items-center gap-2 text-white/80 grayscale brightness-200 contrast-200">
+                   <SiHuawei className="text-3xl" />
+                   <span className="font-bold text-xl tracking-widest uppercase">HUAWEI</span>
+                </div>
+
                 <img
-                    className="max-w-28 md:max-w-32"
-                    src="https://saasly.prebuiltui.com/assets/companies-logo/huawei.svg"
-                    alt="Huawei logo"
-                />
-                <img
-                    className="max-w-28 md:max-w-32"
-                    src="https://saasly.prebuiltui.com/assets/companies-logo/instagram.svg"
+                    className="h-8 w-auto grayscale brightness-[100] invert contrast-200"
+                    src="/assets/logos/instagram.svg"
                     alt="Instagram logo"
                 />
+                
                 <img
-                    className="max-w-28 md:max-w-32"
-                    src="https://saasly.prebuiltui.com/assets/companies-logo/microsoft.svg"
+                    className="h-8 w-auto grayscale brightness-[100] invert contrast-200"
+                    src="/assets/logos/microsoft.svg"
                     alt="Microsoft logo"
                 />
-                <img
-                    className="max-w-28 md:max-w-32"
-                    src="https://saasly.prebuiltui.com/assets/companies-logo/walmart.svg"
-                    alt="Walmart logo"
-                />
+                
+                <div className="flex items-center gap-2 text-white/80 grayscale brightness-200 contrast-200">
+                    <SiWalmart className="text-3xl" />
+                    <span className="font-bold text-xl tracking-tighter">Walmart</span>
+                    <span className="text-yellow-400 -ml-1 text-2xl mb-2">*</span>
+                </div>
             </div>
         </section>
     );
