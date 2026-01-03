@@ -98,8 +98,8 @@
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/amaan-ur-raheman/ai-site-builder.git
-cd ai-site-builder
+git clone https://github.com/Jagadeeshreddy14/Ai-Website-Builder.git
+cd Ai-Website-Builder
 ```
 
 2. **Install dependencies**
@@ -226,9 +226,7 @@ We welcome contributions! Please follow these steps:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -242,9 +240,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ by Amaan Ur Raheman**
+**Made with ❤️ by Jagadish
 
-[⭐ Star this repo](https://github.com/amaan-ur-raheman/ai-site-builder) if you found it helpful!
+[⭐ Star this repo](https://github.com/Jagadeeshreddy14/Ai-Website-Builder) if you found it helpful!
 
 </div>
 
