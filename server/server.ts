@@ -13,17 +13,11 @@ const app = express();
 const port = 3000;
 
 const corsOption: CorsOptions = {
-    origin: process.env.TRUSTED_ORIGINS
-        ? process.env.TRUSTED_ORIGINS.split(",")
-        : [
-              "http://localhost:5173",
-              "https://ai-website-builder-tzsv.vercel.app",
-          ],
+    origin: process.env.TRUSTED_ORIGINS?.split(",") || [],
     credentials: true,
 };
 
 app.use(cors(corsOption));
-app.options("*", cors(corsOption));
 app.post(
     "/api/stripe",
     express.raw({ type: "application/json" }),
