@@ -1,7 +1,7 @@
 {
   "version": 2,
   "env": {
-    "DATABASE_URL": "@database_url"
+    "DATABASE_URL": "postgresql://neondb_owner:npg_P9cy6CnwGFDr@ep-super-shadow-a1hh0gjm-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require/ai_site_builder"
   },
   "builds": [
     {
