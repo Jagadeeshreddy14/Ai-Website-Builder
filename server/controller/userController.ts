@@ -415,6 +415,10 @@ export const purchaseCredits = async (req: Request, res: Response) => {
             },
         });
 
+        if (!process.env.STRIPE_SECRET_KEY) {
+            return res.status(500).json({ message: "Stripe API Key is missing in server configuration" });
+        }
+
         const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
         const session = await stripe.checkout.sessions.create({
