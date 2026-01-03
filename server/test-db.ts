@@ -1,0 +1,15 @@
+import prisma from './lib/prisma.js';
+
+async function testConnection() {
+    try {
+        await prisma.$connect();
+        console.log('✓ Database connection successful');
+        await prisma.$disconnect();
+        process.exit(0);
+    } catch (error) {
+        console.error('✗ Database connection failed:', error.message);
+        process.exit(1);
+    }
+}
+
+testConnection();
