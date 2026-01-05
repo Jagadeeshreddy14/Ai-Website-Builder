@@ -18,6 +18,7 @@ const corsOption: CorsOptions = {
         ? process.env.TRUSTED_ORIGINS.split(",")
         : [
               "http://localhost:5173",
+              "http://localhost:5174",
               "https://ai-website-builder-tzsv.vercel.app",
           ],
     credentials: true,
