@@ -24,14 +24,14 @@ const corsOption: CorsOptions = {
 };
 
 app.use(cors(corsOption));
-app.options("*", cors(corsOption));
 app.post(
     "/api/stripe",
     express.raw({ type: "application/json" }),
     stripeWebhook
 );
 
-app.all("/api/auth/{*any}", toNodeHandler(auth));
+// Better Auth routes: mount under /api/auth
+app.use("/api/auth", toNodeHandler(auth));
 
 app.use(express.json({ limit: "50mb" }));
 
@@ -42,6 +42,12 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/user", userRouter);
 app.use("/api/project", projectRouter);
 
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
+// In serverless (Vercel), we should export the app instead of listening
+// Only start a local server when not running in Vercel
+if (!process.env.VERCEL) {
+    app.listen(port, () => {
+        console.log(`Server is running at http://localhost:${port}`);
+    });
+}
+
+export default app;
