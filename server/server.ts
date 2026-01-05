@@ -9,11 +9,17 @@ import projectRouter from "./routes/projectRoutes.js";
 import { stripeWebhook } from "./controller/stripeWebhook.js";
 
 const app = express();
+app.set("trust proxy", 1);
 
 const port = 3000;
 
 const corsOption: CorsOptions = {
-    origin: process.env.TRUSTED_ORIGINS?.split(",") || [],
+    origin: process.env.TRUSTED_ORIGINS
+        ? process.env.TRUSTED_ORIGINS.split(",")
+        : [
+              "http://localhost:5173",
+              "https://ai-website-builder-tzsv.vercel.app",
+          ],
     credentials: true,
 };
 

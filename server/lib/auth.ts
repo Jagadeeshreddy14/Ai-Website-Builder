@@ -3,7 +3,13 @@ import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import prisma from "./prisma.js";
 
-const trustedOrigins = process.env.TRUSTED_ORIGINS?.split(",") || [];
+const trustedOrigins = process.env.TRUSTED_ORIGINS
+    ? process.env.TRUSTED_ORIGINS.split(",")
+    : [
+          "https://ai-website-builder-tzsv.vercel.app",
+          "http://localhost:5173",
+          "http://localhost:5174",
+      ];
 
 export const auth = betterAuth({
     database: prismaAdapter(prisma, {
