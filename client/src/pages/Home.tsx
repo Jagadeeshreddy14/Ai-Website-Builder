@@ -6,6 +6,7 @@ import { SiHuawei, SiWalmart } from "react-icons/si";
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import Footer from "../components/Footer";
 
 const Home = () => {
     const [input, setInput] = useState("");
@@ -72,13 +73,13 @@ const Home = () => {
                 </p>
             </a>
 
-            <h1 className="text-center text-[40px] leading-[48px] md:text-6xl md:leading-[70px] mt-4 font-semibold max-w-3xl">
-                Turn thoughts into websites instantly, with AI.
+            <h1 className="text-center text-[40px] leading-[48px] md:text-6xl md:leading-[70px] mt-6 font-semibold max-w-4xl bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
+                Turn thoughts into polished, responsive websites — instantly.
             </h1>
 
-            <p className="text-center text-base max-w-md mt-2">
-                Create, customize and publish faster than ever with intelligent
-                design powered by AI.
+            <p className="text-center text-base max-w-xl mt-3 text-white/80">
+                Create, customize, and publish faster than ever with intelligent
+                design powered by AI. No templates. Just results.
             </p>
 
             <form
@@ -89,19 +90,28 @@ const Home = () => {
                     onChange={(e) => setInput(e.target.value)}
                     className="bg-transparent outline-none text-gray-300 resize-none w-full"
                     rows={4}
-                    placeholder="Describe your presentation in detail"
+                    placeholder="Describe your website in detail (sections, style, features)"
                     required
                 />
-                <button className="ml-auto flex items-center gap-2 bg-gradient-to-r from-[#CB52D4] to-indigo-600 rounded-md px-4 py-2">
-                    {!loading ? (
-                        "Create with AI"
-                    ) : (
-                        <>
-                            Creating{" "}
-                            <Loader2Icon className="animate-spin size-4 text-white" />
-                        </>
-                    )}
-                </button>
+                <div className="flex flex-wrap gap-3 justify-end">
+                    <button
+                        type="button"
+                        onClick={() => navigate("/community")}
+                        className="flex items-center gap-2 px-4 py-2 rounded-md bg-white/10 hover:bg-white/15 text-white/90 border border-white/10"
+                    >
+                        View examples
+                    </button>
+                    <button className="flex items-center gap-2 bg-gradient-to-r from-[#CB52D4] to-indigo-600 rounded-md px-4 py-2">
+                        {!loading ? (
+                            "Create with AI"
+                        ) : (
+                            <>
+                                Creating{" "}
+                                <Loader2Icon className="animate-spin size-4 text-white" />
+                            </>
+                        )}
+                    </button>
+                </div>
             </form>
 
             <div className="flex flex-wrap items-center justify-center gap-16 md:gap-20 mx-auto mt-16">
@@ -134,6 +144,7 @@ const Home = () => {
                     <span className="text-yellow-400 -ml-1 text-2xl mb-2">*</span>
                 </div>
             </div>
+            <Footer />
         </section>
     );
 };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserButton } from "@daveyplate/better-auth-ui";
 
 import { authClient } from "@/lib/auth-client";
@@ -11,6 +11,7 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [credits, setCredits] = useState(0);
     const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     const { data: session } = authClient.useSession();
 
@@ -46,24 +47,24 @@ const Navbar = () => {
                 </Link>
 
                 <div className="hidden md:flex items-center gap-8 transition duration-500">
-                    <Link to="/" className="hover:text-slate-300 transition">
+                    <Link to="/" className={`${pathname === "/" ? "text-indigo-400" : "hover:text-slate-300"} transition`}>
                         Home
                     </Link>
                     <Link
                         to="/projects"
-                        className="hover:text-slate-300 transition"
+                        className={`${pathname.startsWith("/projects") ? "text-indigo-400" : "hover:text-slate-300"} transition`}
                     >
                         My Projects
                     </Link>
                     <Link
                         to="/community"
-                        className="hover:text-slate-300 transition"
+                        className={`${pathname.startsWith("/community") ? "text-indigo-400" : "hover:text-slate-300"} transition`}
                     >
                         Community
                     </Link>
                     <Link
                         to="/pricing"
-                        className="hover:text-slate-300 transition"
+                        className={`${pathname.startsWith("/pricing") ? "text-indigo-400" : "hover:text-slate-300"} transition`}
                     >
                         Pricing
                     </Link>

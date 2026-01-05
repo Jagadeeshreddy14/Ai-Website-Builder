@@ -28,7 +28,6 @@ app.all("/api/auth/{*any}", toNodeHandler(auth));
 
 app.use(express.json({ limit: "50mb" }));
 
-
 app.get("/", (req: Request, res: Response) => {
     res.send("Server is Live!");
 });
@@ -36,11 +35,6 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/user", userRouter);
 app.use("/api/project", projectRouter);
 
-// Only listen if not in Vercel (serverless) environment
-if (process.env.VERCEL !== "1") {
-    app.listen(port, () => {
-        console.log(`Server is running at http://localhost:${port}`);
-    });
-}
-
-export default app;
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+});
