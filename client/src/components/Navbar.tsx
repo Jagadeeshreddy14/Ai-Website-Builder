@@ -13,13 +13,15 @@ const Navbar = () => {
     const navigate = useNavigate();
     const { pathname } = useLocation();
 
-    const { data: session } = authClient.useSession();
+    const { data: session, isPending } = authClient.useSession();
 
     const getCredits = async () => {
         try {
             const { data } = await api.get("/api/user/credits");
             setCredits(data.credits);
         } catch (error: any) {
+            // Silently ignore unauthorized while session is settling
+            if (error?.response?.status === 401) return;
             toast.error(
                 error?.response?.data?.message ||
                     error?.message ||
@@ -71,7 +73,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-center gap-3">
-                    {!session?.user ? (
+                    {!isPending && !session?.user ? (
                         <button
                             onClick={() => navigate("/auth/sign-in")}
                             className="px-6 py-1.5 max-sm:text-sm bg-indigo-600 active:scale-95 hover:bg-indigo-700 transition rounded-md"
