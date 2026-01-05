@@ -24,6 +24,7 @@ const corsOption: CorsOptions = {
 };
 
 app.use(cors(corsOption));
+app.options("*", cors(corsOption));
 app.post(
     "/api/stripe",
     express.raw({ type: "application/json" }),
